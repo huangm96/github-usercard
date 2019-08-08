@@ -11,6 +11,7 @@ axios.get('https://api.github.com/users/huangm96')
     const user=document.querySelector(".cards");
     user.appendChild(createGithubCard(response.data));
     
+    
   })
   .catch(function (error) {
     // handle error
@@ -84,48 +85,63 @@ axios.get('https://api.github.com/users/huangm96/followers')
 */
 function createGithubCard(data){
 
-const card = document.createElement('div');
-const userImg = document.createElement('img');
-const cardInfo = document.createElement('div');
-const name = document.createElement('h3');
-const username = document.createElement('p');
-const location = document.createElement('p');
-const profile = document.createElement('p');
-const address = document.createElement('a');
-const followers = document.createElement('p');
-const following = document.createElement('p');
-const bio =document.createElement('p');
+   
+    const card = document.createElement('div');
+    const userImg = document.createElement('img');
+    const cardInfo = document.createElement('div');
+    const name = document.createElement('h3');
+    const username = document.createElement('p');
+    const location = document.createElement('p');
+    const profile = document.createElement('p');
+    const address = document.createElement('a');
+    const followers = document.createElement('p');
+    const following = document.createElement('p');
+    const bio =document.createElement('p');
+    
+    
+    //const contrubutionImg = document.createElement('img');
 
-card.classList.add('card');
-userImg.setAttribute('src', data.avatar_url);
-cardInfo.classList.add('card-info');
-name.classList.add('name');
-username.classList.add('username');
-address.setAttribute('href', data.html_url);
+    
+    card.classList.add('card');
+    userImg.setAttribute('src', data.avatar_url);
+    cardInfo.classList.add('card-info');
+    name.classList.add('name');
+    username.classList.add('username');
+    address.setAttribute('href', data.html_url);
+    
+    
+    
 
-name.textContent="Name: " + data.name;
-username.textContent="Username: "+ data.login;
-location.textContent="Location: " + data.location;
-profile.textContent="Profile: " +data.html_url;
-followers.textContent="Followers: " + data.followers;
-following.textContent="Following: " + data.following;
-bio.textContent = "Bio: "+ data.bio;
+    name.textContent="Name: " + data.name;
+    username.textContent="Username: "+ data.login;
+    location.textContent="Location: " + data.location;
+    profile.textContent="Profile: " +data.html_url;
+    followers.textContent="Followers: " + data.followers;
+    following.textContent="Following: " + data.following;
+    bio.textContent = "Bio: "+ data.bio;
+    
+    
+    
+    card.appendChild(userImg);
+    card.appendChild(cardInfo);
+    cardInfo.appendChild(name);
+    cardInfo.appendChild(username);
+    cardInfo.appendChild(location);
+    cardInfo.appendChild(profile);
+    profile.appendChild(address);
+    cardInfo.appendChild(followers);
+    cardInfo.appendChild(following);
+    cardInfo.appendChild(bio);
+    
+  
+    
 
-card.appendChild(userImg);
-card.appendChild(cardInfo);
-cardInfo.appendChild(name);
-cardInfo.appendChild(username);
-cardInfo.appendChild(location);
-cardInfo.appendChild(profile);
-profile.appendChild(address);
-cardInfo.appendChild(followers);
-cardInfo.appendChild(following);
-cardInfo.appendChild(bio);
-
-return card;
+    return card;
 
 
 }
+
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
