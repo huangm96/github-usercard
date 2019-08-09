@@ -2,12 +2,14 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+console.log (document.querySelector(".container"));
+
 
 axios.get('https://api.github.com/users/huangm96')
   
 .then(function (response) {
     // handle success
-    
+    console.log(response);
     const user=document.querySelector(".cards");
     user.appendChild(createGithubCard(response.data));
     
@@ -85,7 +87,9 @@ axios.get('https://api.github.com/users/huangm96/followers')
 */
 function createGithubCard(data){
 
-   
+  const bigCard=document.createElement("div");
+  const contribution = document.createElement("div");
+  const contributionImg = document.createElement("img");
     const card = document.createElement('div');
     const userImg = document.createElement('img');
     const cardInfo = document.createElement('div');
@@ -98,11 +102,7 @@ function createGithubCard(data){
     const following = document.createElement('p');
     const bio =document.createElement('p');
     
-    
-    
-
-    
-
+    bigCard.classList.add('bigcard');
     card.classList.add('card');
     userImg.setAttribute('src', data.avatar_url);
     cardInfo.classList.add('card-info');
@@ -110,8 +110,6 @@ function createGithubCard(data){
     username.classList.add('username');
     address.setAttribute('href', data.html_url);
     
-    
-
     name.textContent="Name: " + data.name;
     username.textContent="Username: "+ data.login;
     location.textContent=`Location: ${data.location||"none"}`;
@@ -136,11 +134,26 @@ function createGithubCard(data){
     cardInfo.appendChild(bio);
     
 
-    return card;
+
+    
+    
+    contribution.classList.add('contribution');
+    
+    contributionImg.setAttribute('src', `http://ghchart.rshah.org/${data.login}` );
+    contributionImg.classList.add("conImg");
+    
+    bigCard.appendChild(card);
+    bigCard.appendChild(contribution);
+    
+    contribution.appendChild(contributionImg);
+
+    
+    
+    return bigCard;
 
 
 }
-;
+
 
 /* List of LS Instructors Github username's: 
   tetondan
