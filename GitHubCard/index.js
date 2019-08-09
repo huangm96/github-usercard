@@ -99,16 +99,16 @@ function createGithubCard(data){
     const bio =document.createElement('p');
     
     
-    //const contrubutionImg = document.createElement('img');
+    
 
     
+
     card.classList.add('card');
     userImg.setAttribute('src', data.avatar_url);
     cardInfo.classList.add('card-info');
     name.classList.add('name');
     username.classList.add('username');
     address.setAttribute('href', data.html_url);
-    
     
     
 
@@ -135,14 +135,12 @@ function createGithubCard(data){
     cardInfo.appendChild(following);
     cardInfo.appendChild(bio);
     
-  
-    
 
     return card;
 
 
 }
-
+;
 
 /* List of LS Instructors Github username's: 
   tetondan
