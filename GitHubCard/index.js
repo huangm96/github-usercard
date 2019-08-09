@@ -114,13 +114,13 @@ function createGithubCard(data){
 
     name.textContent="Name: " + data.name;
     username.textContent="Username: "+ data.login;
-    location.textContent="Location: " + data.location;
+    location.textContent=`Location: ${data.location||"none"}`;
     
     profile.textContent="Profile: " ;
     address.textContent=data.html_url;
     followers.textContent="Followers: " + data.followers;
     following.textContent="Following: " + data.following;
-    bio.textContent = "Bio: "+ data.bio;
+    bio.textContent = `Bio:  ${data.bio||"none"}`;
     
     
     
