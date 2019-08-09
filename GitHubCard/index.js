@@ -147,7 +147,14 @@ function createGithubCard(data){
     
     contribution.appendChild(contributionImg);
 
-    
+    const expandButton = document.createElement('p');
+    expandButton.textContent = "Contribution";
+    expandButton.classList.add("button");
+    cardInfo.appendChild(expandButton);
+
+     expandButton.addEventListener("click",()=>{
+      contribution.classList.toggle('contribution-open');
+  });
     
     return bigCard;
 
