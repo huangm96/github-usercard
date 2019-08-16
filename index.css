@@ -91,12 +91,22 @@ body {
   width: 100%;
 }
 
-.card {
+.bigcard {
   width: 100%;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   border-radius: 5px;
   box-shadow: 0 1px 6px -2px #000;
+  background-color: #FFF;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 100%;
+  padding: 20px 20px 0 20px;
+  display: flex;
+  
   background-color: #FFF;
   margin-bottom: 30px;
 }
@@ -125,3 +135,21 @@ body {
 
 
 
+.conImg{
+  width:100%;
+}
+
+.contribution{
+  display:none;
+}
+.contribution-open{
+  display: block;
+}
+.button{
+  width:150px;
+  padding:5px 0;
+  
+  text-align: center;
+  box-shadow: 0 1px 6px -2px #000;
+  background:lightblue;
+}
